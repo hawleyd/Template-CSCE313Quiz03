@@ -1,0 +1,99 @@
+Sample run
+
+Server output:
+doug@server-clientserver:~/quizzes/CSCE313Quiz03/Solution2$ g++ -o server tcp-Server.cpp -pthread
+doug@server-clientserver:~/quizzes/CSCE313Quiz03/Solution2$ ./server 8082
+Waiting for a client to connect...
+Connected with client!
+Awaiting client response...
+Socket: 4
+Client: hi
+>Connected with client!
+Awaiting client response...
+Socket: 5
+Client: Yo
+>Connected with client!
+Awaiting client response...
+Socket: 6
+Client: third
+>Socket: 6
+Client: howdy
+>Socket: 4
+Client: done
+>Client has quit the session
+Socket: 5
+Client: metoo
+>Client has quit the session
+Socket: 6
+Client: fine
+>Client has quit the session
+Connected with client!
+Awaiting client response...
+Socket: 7
+Client: back
+>Socket: 7
+Client: okbye
+>Client has quit the session
+^C
+
+First client output:
+doug@coursework:~/quizzes/CSCE313Quiz03/Solution$ g++ -o client tcp-Client.cpp
+doug@coursework:~/quizzes/CSCE313Quiz03/Solution$ ./client 10.128.0.4 8082
+Connected to the server!
+>hi
+Awaiting server response...
+Server: ihay
+>done
+Awaiting server response...
+Server: oneday
+>exit
+********Session********
+Bytes written: 6 Bytes read: 10
+Elapsed time: 72 secs
+Connection closed
+
+Second client output:
+doug@coursework:~/quizzes/CSCE313Quiz03/Solution$ ./client 10.128.0.4 8082
+Connected to the server!
+>Yo 
+Awaiting server response...
+Server: oYay
+>metoo
+Awaiting server response...
+Server: etoomay
+>exit
+********Session********
+Bytes written: 7 Bytes read: 32756
+Elapsed time: 62 secs
+Connection closed
+
+Third client output:
+doug@server-clientserver:~/quizzes/CSCE313Quiz03/Solution2$ ./client 10.128.0.4 8082
+Connected to the server!
+>third
+Awaiting server response...
+Server: irdthay
+>howdy
+Awaiting server response...
+Server: owdyhay
+>fine
+Awaiting server response...
+Server: inefay
+>exit
+********Session********
+Bytes written: 14 Bytes read: 32568
+Elapsed time: 52 secs
+Connection closed
+doug@server-clientserver:~/quizzes/CSCE313Quiz03/Solution2$ ./client 10.128.0.4 8082
+Connected to the server!
+>back
+Awaiting server response...
+Server: ackbay
+>okbye
+Awaiting server response...
+Server: okbyeway
+>exit
+********Session********
+Bytes written: 9 Bytes read: 14
+Elapsed time: 15 secs
+Connection closed
